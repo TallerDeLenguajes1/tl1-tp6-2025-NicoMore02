@@ -64,6 +64,12 @@ do
         case "4":
             division();
             break;
+        case "5":
+            Operaciones();
+            break;
+        case "6":
+            Max_Min();
+            break;
         case "0":
             salir = true;
             Console.WriteLine("Saliendo....");
@@ -89,12 +95,16 @@ double LeerNumero(string mensaje)
 }
 void menu()
 {
+    Console.WriteLine("=== CALCULADORA BASICA ===");
     Console.WriteLine("Elija una opcion");
     Console.WriteLine("1_ Suma");
     Console.WriteLine("2_ Resta");
     Console.WriteLine("3_ Multiplicacion");
     Console.WriteLine("4_ Division");
+    Console.WriteLine("5_ Operaciones varias");
+    Console.WriteLine("6_ Valor Max y Min de entre dos numeros");
     Console.WriteLine("0_ Salir");
+    Console.WriteLine("=========================");
 }
 
 void suma()
@@ -139,5 +149,44 @@ void division()
         Console.WriteLine("No se puede dividir por 0");
     }
 
-    Console.WriteLine("El resultado de la division es: "+ resultado);
+    Console.WriteLine("El resultado de la division es: " + resultado);
+}
+
+void Operaciones()
+{
+    double num = LeerNumero("Ingrese un numero: ");
+    double potencia = Math.Pow(num, 2);
+    double absoluto = Math.Abs(num);
+    double seno = Math.Sin(num);
+    double coseno = Math.Cos(num);
+    double entero = Math.Truncate(num);
+
+    
+
+    Console.WriteLine("El valor absoluto del numero: " + absoluto);
+    Console.WriteLine("El cuadrado del numero: " + potencia);
+    if (num > 0)
+    {
+        double raiz = Math.Sqrt(num);
+        Console.WriteLine("Raiz cuadrada del numero: " + raiz);
+    }
+    else
+    {
+        Console.WriteLine("No se puede calcular la raiz cuadrada de un numero negativo");
+    }
+    Console.WriteLine("El seno del numero: " + seno);
+    Console.WriteLine("El coseno del numero: " + coseno);
+    Console.WriteLine("El entero del numero(si es decimal): " + entero);
+}
+
+void Max_Min()
+{
+    double num1 = LeerNumero("Ingrese primer numero: ");
+    double num2 = LeerNumero("Ingrese segundo numero: ");
+
+    double max = Math.Max(num1, num2);
+    double min = Math.Min(num1, num2);
+
+    Console.WriteLine("El numero maximo es: " + max);
+    Console.WriteLine("El numero minimo es: " + min);
 }
