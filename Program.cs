@@ -42,6 +42,18 @@ else
     Console.WriteLine("El valor ingresado no es un numero");
 }
 
+// CADENA
 
+//*1
+Console.WriteLine("Ingrese una palabra: ");
+string palabra = Console.ReadLine();
+int longitud = palabra.Length;
+Console.WriteLine("Longitud de la cadena: " + longitud);
+
+//*2
+Console.WriteLine("Ingrese una segunda palabra: ");
+string palabra2 = Console.ReadLine();
+string concatenada = $"{palabra}, {palabra2}";
+Console.WriteLine("La palabra concatenada es: " + concatenada);
 
 //funciones
