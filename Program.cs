@@ -56,6 +56,75 @@ string palabra2 = Console.ReadLine();
 string concatenada = $"{palabra}, {palabra2}";
 Console.WriteLine("La palabra concatenada es: " + concatenada);
 
+//*3
+string[] separador = concatenada.Split(',');
+Console.WriteLine("Cadena separada: " + separador[0]);
+Console.WriteLine("Cadena separada: " + separador[1]);
+
+//*4
+bool salir = false;
+
+do
+{
+    menu();
+    string opcion = Console.ReadLine();
+
+    switch (opcion)
+    {
+        case "1":
+            suma();
+            break;
+        case "2":
+            resta();
+            break;
+        case "3":
+            Multiplicacion();
+            break;
+        case "4":
+            division();
+            break;
+        case "5":
+            Operaciones();
+            break;
+        case "6":
+            Max_Min();
+            break;
+        case "0":
+            salir = true;
+            Console.WriteLine("Saliendo....");
+            break;
+    }
+
+} while (!salir);
+
+Console.WriteLine("Muestro las palabras");
+//5*
+foreach (string caracter in separador)
+{
+    Console.WriteLine(caracter);
+}
+
+//6*
+string palabraABuscar = Console.ReadLine();
+
+bool existe = separador.Contains(palabraABuscar);
+Console.WriteLine($"¿La palabra '{palabraABuscar}' existe? {existe}");
+
+//7*
+Console.WriteLine("En Mayuscula: " + concatenada.ToUpper());
+Console.WriteLine("En Minuscula: " + concatenada.ToLower());
+
+//8
+Console.WriteLine("Ingrese una frase con espacio por cada letra: ");
+string frase = Console.ReadLine();
+string[] caracteres = frase.Split(" ");
+Console.WriteLine("\nPalabras separadas:");
+foreach (string letra in caracteres)
+{
+    Console.WriteLine($"- \"{letra}\"");
+}
+
+
 //funciones
 double LeerNumero(string mensaje)
 {
@@ -67,6 +136,7 @@ double LeerNumero(string mensaje)
     }
     return numero;
 }
+
 void menu()
 {
     Console.WriteLine("=== CALCULADORA BASICA ===");
@@ -87,7 +157,7 @@ void suma()
     double num2 = LeerNumero("Ingrese segundo numero: ");
 
     double resultado = num1 + num2;
-    Console.WriteLine("El resultado de la suma es: " + resultado);
+    Console.WriteLine("la suma de " +num1 ," y " + num2 ," es " + resultado);
 }
 
 void resta()
