@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Text.RegularExpressions;
 Console.WriteLine("Hello, World!");
 
 int a;
@@ -124,6 +125,21 @@ foreach (string letra in caracteres)
     Console.WriteLine($"- \"{letra}\"");
 }
 
+Console.Write("Ingrese una dirección web: ");
+        string url = Console.ReadLine();
+
+        if (EsDireccionWebValida(url))
+            Console.WriteLine("La dirección web es válida.");
+        else
+            Console.WriteLine("La dirección web NO es válida.");
+
+        Console.Write("\nIngrese un correo electrónico: ");
+        string email = Console.ReadLine();
+
+        if (EsEmailValido(email))
+            Console.WriteLine("El correo electrónico es válido.");
+        else
+            Console.WriteLine("El correo electrónico NO es válido.");
 
 //funciones
 double LeerNumero(string mensaje)
@@ -234,3 +250,15 @@ void Max_Min()
     Console.WriteLine("El numero maximo es: " + max);
     Console.WriteLine("El numero minimo es: " + min);
 }
+
+bool EsDireccionWebValida(string url)
+    {
+        string patronUrl = @"^(https?:\/\/)?(www\.)?[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?(\/\S*)?$";
+        return Regex.IsMatch(url, patronUrl);
+    }
+
+bool EsEmailValido(string email)
+    {
+        string patronEmail = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+        return Regex.IsMatch(email, patronEmail);
+    }
